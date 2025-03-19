@@ -1,4 +1,4 @@
-// TASK - React 1 week 1
+
 // After you are finished with creating the page, move the OurValues, OurCrew, OurPartners components into their own files
 // OurValues.js, OurCrew.js, OurPartners.js should live in this folder
 // import and use the components from the newly created files
