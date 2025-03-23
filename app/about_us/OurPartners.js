@@ -1,19 +1,29 @@
-/*const OurPartners = () => {
-  // TASK - React 1 week 1
-  // Create the "Our Crew section"
-  // Use the descriptions provided in /app/about_us/README.md
-  // Use the pictures from /public/crew
-  // Some inspiration ideas found in /data/inspiration_about_us
-  return (
-    <p> ADD OUR Partners HERE </p>
-  );
-}*/
-
+import "./OurPartners.css";
 const OurPartners = () => {
-    return (
-      <p> ADD OUR PARTNERS HERE </p>
-    );
-  };
-  
-  export default OurPartners;
-  
+  const partners = [
+    "/business_partners/CBC_Logo_White.png",
+    "/business_partners/Microsoft-Logo-white.png",
+    "/business_partners/QueensLogo_white.png",
+    "/business_partners/alphabet-logo.png",
+    "/business_partners/amazon_logo.png",
+    "/business_partners/nyu-logo.png",
+    "/business_partners/samsung-logo.png",
+    "/business_partners/sodexo-logo.png",
+  ];
+  return (
+    <section className="partners-section">
+      <h2>OurPartners</h2>
+      <div className="partners-container">
+        <h2>
+          We collaborate with progressive, ambitious brands we believe in.
+        </h2>
+        <div className="partner-grid">
+          {partners.map((logo, index) => (
+            <img className="partner-img" src={logo} key={index} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+export default OurPartners;
