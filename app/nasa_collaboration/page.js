@@ -5,28 +5,56 @@ import styles from './page.module.css';
 
 // Read "/app/nasa_collaboration/README.md" for more info about the API_KEY
 // You need a proper API_KEY for the requests to work
-const API_KEY = 'API_KEY';
+const API_KEY = 'yfeXElzZbfcI8Op2vQh9PynOxURTXTzw8ML9vxOM';
 
 const NASA_URLs = {
   astronomyPicOfTheDay: `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`,
   marsRoverPhoto: `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-6-3&api_key=${API_KEY}`,
 };
 
+const RoverPhoto = ({ src, date, roverName }) => (
+  <div className={styles.roverPhotoCard}>
+    <p>Date: {date}</p>
+    <p>Rover Name: {roverName}</p>
+    <img className={styles.nasaPicOfTheDayImg}  src={src} alt={`Photo taken by ${roverName} on ${date}`} />
+  </div>
+);
 export const NasaCollaboration = () => {
-  const [dailyImg, setDailyImg] = useState({});
-  const [roverPhoto, setRoverPhoto] = useState({});
+  const [dailyImg, setDailyImg] = useState(null);
+const [roverPhoto, setRoverPhoto] = useState([]);
 
   useEffect(() => {
     const fetchRoverPhotos = async () => {
-      const roverPhotoResponse = await fetch(NASA_URLs.marsRoverPhoto).then(response => response.json());
-      setRoverPhoto(roverPhotoResponse);
+      try {
+        const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-06-03&api_key=${API_KEY}`);
+        const data = await response.json();
+        console.log(data); 
+        setRoverPhoto(data.photos || []);
+        
+      } catch (error) {
+        console.error('Error fetching Mars Rover photos:', error);
+      }
     };
 
-    fetchRoverPhotos();
+  
 
     // TASK - React 1 week 3 
     // fetch the extra data for NASA_URLs.astronomyPicOfTheDay and save it to the dailyImg state variable
+    const fetchAstronomyPic = async () => {
+      try {
+        const response = await fetch(NASA_URLs.astronomyPicOfTheDay);
+        const data = await response.json();
+        console.log(data); 
+        setDailyImg(data);
+      } catch (error) {
+        console.error('Error fetching Astronomy Picture of the Day:', error);
+      }
+    };
+
+    fetchRoverPhotos();
+    fetchAstronomyPic();
   }, []);
+
 
   return (
     <div className="fullBGpicture">
@@ -38,14 +66,34 @@ export const NasaCollaboration = () => {
           {/* After fetching data from the NASA_URLs.astronomyPicOfTheDay url, display the returned data here */}
           {/* You should display the title, explanation, and the image using the url from the response */}
           {/* <img src={dailyImg.url}> */}
+          {dailyImg?.url ? (
+            <>
+              <h3>{dailyImg.title}</h3>
+              <p>{dailyImg.explanation}</p>
+              {dailyImg.media_type === "video" ? (
+                <iframe 
+                  className={styles.nasaPicOfTheDayImg} 
+                  src={dailyImg.url} 
+                  title={dailyImg.title}
+                   frameBorder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              ) : (
+              <img className={styles.nasaPicOfTheDayImg} src={dailyImg.url} alt={dailyImg.title} />
+            )}
+              </>
+          ) : (
+            <p>Loading astronomy picture...</p>
+          
+          )}
+
         </section>
         <section className="card">
           <h2>Rover Photos</h2>
           {/* TASK - React 1 week 3 */}
           {/* Iteratate over the roverPhoto?.photos array and display all the pictures! */}
-          {
-            roverPhoto?.photos?.length ? (
-              <>
+         
                 {/* TASK - React 1 week 3 */}
                 {/* Create a react component for the <RoverPhoto />, which should accept the following props */}
                 {/* 1. src: source of the img (img_src in the data from the API) */}
@@ -56,13 +104,19 @@ export const NasaCollaboration = () => {
                 {/* If you don't know how the data looks like you can: */}
                 {/* 1. use console.log() to write the data to the console */}
                 {/* 2. use the network tab in the developer tab - https://developer.chrome.com/docs/devtools/network */}
-                <p>Date {roverPhoto.photos[0]?.earth_date}</p>
-                <img className={styles.nasaPicOfTheDayImg} src={roverPhoto.photos[0]?.img_src} alt={dailyImg.title} />
-              </>
-              ) : (
-                <p>Loading rover photos...</p>
-              )
-            }
+                {roverPhoto.length ? (
+                    roverPhoto.map((photo) => (
+      
+                <RoverPhoto 
+                key={photo.id} 
+                src={photo.img_src} 
+                date={photo.earth_date} 
+                roverName={photo.rover.name} 
+                />
+            ))
+          ) : (
+            <p>Loading rover photos...</p>
+          )}
         </section>
       </main>
     </div>

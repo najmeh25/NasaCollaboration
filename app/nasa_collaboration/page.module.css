@@ -5,8 +5,40 @@
 }
 
 
+
+
 .nasaPicOfTheDayImg {
   width: auto;
   height: 400px;
+  display: block;
+  margin: 0 auto; 
+}
 
+
+.roverPhotoCard {
+  display: inline-block;
+  width: 300px;
+  margin: 10px;
+  text-align: center;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+
+
+.roverPhotoCard img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card h2 {
+  text-align: center;
+  margin-bottom: 20px;
 }
