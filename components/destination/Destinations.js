@@ -2,7 +2,7 @@
 import PlanetCard from '@/components/destination/PlanetCard';
 import { useState } from 'react';
 import styles from '@/components/destination/destination.module.css';
-
+const planets = ["Europa", "Moon", "Mars", "Titan"];
 export const Destinations = () => {
   const [selectedPlanets, setSelectedPlanets] = useState([]);
   
@@ -31,7 +31,7 @@ export const Destinations = () => {
         
         <section className="card">
           <h2>Possible destinations</h2>
-          {["Europa", "Moon", "Mars", "Titan"].map((planet) => (
+          {planets.map((planet) => (
             <PlanetCard
               key={planet}
               name={planet}
