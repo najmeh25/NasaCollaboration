@@ -1,0 +1,40 @@
+.crew-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .crew-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .crew-image {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .crew-name {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .crew-role {
+    font-size: 1em;
+    color: #888;
+  }
+  
+  .crew-description {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 10px;
+  }
+  
