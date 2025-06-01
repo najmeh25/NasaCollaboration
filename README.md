@@ -1,41 +1,85 @@
-# Galactica Space Travel App
+# 🚀 Galactica - Space Travel App
 
-## Introduction
-Galactica is a space travel application built with Next.js and React. This project aims to teach students the fundamentals of React and Next.js by creating a dynamic and interactive space exploration app.
+## 🌐 Live Demo
 
-## Prerequisites
-- Node.js (version 18 or higher)
-- npm or yarn
+Check out the live version of this project:  
+👉 [Galactica on Vercel](https://nasa-collaboration.vercel.app/)
 
-## Getting Started
+Galactica is a dynamic and interactive space travel application built with **Next.js** and **React**.  
+This educational project is designed to help students learn the fundamentals of building modern web applications using real-world tools and workflows.
 
-### Installation
-1. Fork the repository (Recommended)
-2. Clone the repository using Code > Clone
+---
 
-Now you should have to project on your computer.
+## 📚 Table of Contents
 
-3. cd into the homework folder
-4. run `npm install`
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+- [Running the App](#running-the-app)
+- [Homeworks](#homeworks)
+- [How to Find Tasks](#how-to-find-tasks)
+- [License](#license)
+
+---
+
+## ✨ Features
+
+- Built with **Next.js** and **React**
+- Structured as a learning project with weekly tasks
+- Dynamic pages and reusable components
+- Space exploration theme with sci-fi inspiration
+- CSS-based styling
+
+---
+
+## ✅ Prerequisites
+
+Before getting started, make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (version 18 or higher)
+- npm or yarn package manager
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+You can either:
+- **Fork** this repository (recommended)  
+  *or*
+- Clone it directly:
+git clone https://github.com/najmeh25/galactica.git
+
+2. Navigate to the Project Directory:
+cd galactica
+3. Install Dependencies:
+npm install
+
+## 💻 Running the App
+To start the development server, run:
+```bash
+npm run dev
 
 
-### Running the Development Server
+Then open your browser and go to:
+http://localhost:3000
 
-`npm run dev`
 
-Open your browser and navigate to http://localhost:3000 to see the app in action.
+📦 Technologies Used
+JavaScript
+React
+Next.js
+CSS
 
-## HOMEWORKS:
+📜 License
+This is an educational project created for learning purposes.
+All resources and content are provided as-is, and no real services are used or offered.
 
-Throughout the weeks you will be adding new features to this existing application.
-For your tasks you should be searching for the following:
+🛰️ Disclaimer
+This portfolio and project are fictional and part of a learning curriculum.
+Contact details, app functionality, and data are not real.
 
-- Tasks for week1: `TASK - React 1 week 1`
-- Tasks for week2: `TASK - React 1 week 2`
-- Tasks for week3: `TASK - React 1 week 3`
 
-You should be fixing ALL THE INSTANSCES of the current week.
 
-### How to find the tags?
 
-Use the global search function in your IDE. (`cmnd + shift + F` OR `Control + shift + F`)
